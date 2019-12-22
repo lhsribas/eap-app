@@ -29,7 +29,7 @@
 			<prefill>true</prefill>
 		</pool>
 		<security>
-			<user-name>redhat</user-name>
+			<user-name>admin</user-name>
 			<password>redhat123</password>
 		</security>
 	</datasource>
