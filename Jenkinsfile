@@ -23,18 +23,22 @@ pipeline
 
     stages
     {
-        stage("Test Project") 
+    	stage("Get ArtifactID and Version") 
         {
             steps 
             {
                 script 
                 {
-                    withMaven(mavenSettingsConfig: "maven-settings") {
-                        sh "mvn clean test"
-                    }
+                    version = readMavenPom().getVersion();
+                    echo "Version ::: ${version}"
+
+                    artifactId = readMavenPom().getArtifactId();
+                    echo "artifactId ::: ${artifactId}"
+                
                 }
             }
         }
+        
         
         stage("Build Project") 
         {
